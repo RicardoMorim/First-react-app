@@ -3,8 +3,6 @@ import {
   Card,
   CardImg,
   CardImgOverlay,
-  CardText,
-  CardBody,
   CardTitle,
 } from "reactstrap";
 import DishDetailComponents from "./DishDetailComponent";
