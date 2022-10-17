@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
 class DishDetailComponents extends Component {
   constructor(props) {
@@ -44,6 +38,10 @@ class DishDetailComponents extends Component {
       return <div></div>;
     }
     const DishDetailComponent = comments.map((comment) => {
+      /* Tentativa acertada de converter as datas destas ("2015-02-13T17:57:28.556094Z") para datas americanas, porém depois descobri a função
+       que acabei por usar mas não quis apagar isto pois deu bastante trabalho :D */
+    
+      /*
       var a = comment.date.split("");
       var mes = a.slice(5, 7);
       var dia = (a.slice(8,9)+a.slice(9,10))
@@ -62,10 +60,20 @@ class DishDetailComponents extends Component {
         "Nov",
         "Dec",
       ];
+      */
       return (
         <li key={comments.id}>
           <p>{comment.comment}</p>
-          <p>-- {comment.author}, {meses[parseInt(mes)]} {parseInt(dia)+1}, {ano}</p>
+          <p>
+            -- {comment.author},{" "}
+            {new Intl.DateTimeFormat("pt", {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            }).format(new Date(Date.parse(comment.date)))}
+          </p>
         </li>
       );
     });
