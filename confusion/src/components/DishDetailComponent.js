@@ -1,66 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, CardImg, CardText, CardBody, CardTitle } from "reactstrap";
 
-class DishDetailComponents extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+function RenderDish({ dish }) {
+  if (dish != null) {
+    return (
+      <div className="col-12 col-md-5 m-1">
+        <Card>
+          <CardImg width="100%" src={dish.image} alt={dish.name} />
+          <CardBody>
+            <CardTitle>{dish.name}</CardTitle>
+            <CardText>{dish.description}</CardText>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  } else {
+    return <div></div>;
   }
+}
 
-  onDishSelect(dish) {
-    this.setState({ selectedDish: dish });
-  }
-
-  renderDish(dish) {
-    if (dish != null) {
-      return (
-        <div className="col-12 col-md-5 m-1">
-          <Card>
-            <CardImg
-              width="100%"
-              src={this.props.dish.image}
-              alt={this.props.dish.name}
-            />
-            <CardBody>
-              <CardTitle>{this.props.dish.name}</CardTitle>
-              <CardText>{this.props.dish.description}</CardText>
-            </CardBody>
-          </Card>
-        </div>
-      );
-    } else {
-      return <div></div>;
-    }
-  }
-
-  renderDetails(comments) {
-    if (comments == null) {
-      return <div></div>;
-    }
+function RenderComments({ comments }) {
+  if (comments == null) {
+    return <div></div>;
+  } else {
     const DishDetailComponent = comments.map((comment) => {
-      /* Tentativa acertada de converter as datas destas ("2015-02-13T17:57:28.556094Z") para datas americanas, porém depois descobri a função
-       que acabei por usar mas não quis apagar isto pois deu bastante trabalho :D */
-    
-      /*
-      var a = comment.date.split("");
-      var mes = a.slice(5, 7);
-      var dia = (a.slice(8,9)+a.slice(9,10))
-      var ano = a.slice(0,4)
-      var meses = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      */
       return (
         <li key={comments.id}>
           <p>{comment.comment}</p>
@@ -86,22 +49,21 @@ class DishDetailComponents extends Component {
       </div>
     );
   }
-
-  render() {
-    const dish = this.props.dish;
-    if (dish == null) {
-      return <div></div>;
-    }
-    const dishItem = this.renderDish(dish);
-    const commentItem = this.renderDetails(dish.comments);
-    return (
-      <div className="container">
-        <div className="row">
-          {dishItem}
-          {commentItem}
-        </div>
-      </div>
-    );
-  }
 }
-export default DishDetailComponents;
+
+const DishDetail = (props) => {
+  const dish = props.dish;
+  if (dish == null) {
+    return <div></div>;
+  }
+  return (
+    <div className="container">
+      <div className="row">
+        <RenderDish dish={props.dish} />
+        <RenderComments comments={props.dish.comments} />
+      </div>
+    </div>
+  );
+};
+
+export default DishDetail;
