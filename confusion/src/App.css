@@ -110,6 +110,33 @@ address {
   padding-right: 20px;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.6s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.modal-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media (max-width: 767px) {
   .modal-content {
     width: 90%;

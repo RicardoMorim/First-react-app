@@ -8,9 +8,6 @@ import {
   NavItem,
   Jumbotron,
   Button,
-  ModalHeader,
-  ModalBody,
-  Modal,
   Form,
   FormGroup,
   Input,
@@ -113,8 +110,14 @@ class Header extends Component {
         {/* Had to make the modal by myself because the bootstrap version of it was transparent 
         (1 intire day trying to figure out why to find out it is a bug of bootstrap -.-)*/}
         {this.state.isModalOpen && (
-          <div className="modal-overlay">
-            <div className="modal-content">
+          <div
+            onClick={this.toggleModal}
+            className={`modal-overlay ${
+              this.state.isModalOpen ? "is-open" : "is-closed"
+            }`}
+      
+          >
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
                 <h3>Login!</h3>
                 <button onClick={this.toggleModal}>X</button>
