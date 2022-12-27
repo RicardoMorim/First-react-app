@@ -119,6 +119,17 @@ address {
   }
 }
 
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -154,3 +165,18 @@ address {
     width: 50%;
   }
 }
+
+.backdrop {
+  filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.form-fade-in {
+  animation: fadeIn 0.5s;
+}
+
+.form-fade-out{
+  animation: fadeOut 0.5s;
+}
+
+
