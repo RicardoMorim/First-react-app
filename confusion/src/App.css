@@ -32,15 +32,6 @@ address {
   background-color: #512da8;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 10;
-}
 
 .modal-content {
   position: absolute;
@@ -180,3 +171,22 @@ address {
 }
 
 
+.modal-open {
+  overflow: auto;
+}
+
+.modal {
+  animation: fadeIn 0.6s;
+}
+
+.modal-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+  animation: fadeIn 0.6s;
+}
+
+.modal-overlay.is-closed {
+  visibility: hidden;
+  opacity: 0;
+  animation: fadeOut 0.6s;
+}
