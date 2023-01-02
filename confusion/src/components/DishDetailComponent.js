@@ -21,7 +21,7 @@ const required = (val) => val && val.length; //value > 0
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
 
-function RenderComments({ comments, addComment, dishId }) {
+function RenderComments({ comments, postComment, dishId }) {
   if (comments == null) {
     return <div></div>;
   }
@@ -31,11 +31,10 @@ function RenderComments({ comments, addComment, dishId }) {
         <p>{comment.comment}</p>
         <p>
           -- {comment.author}, &nbsp;
-          {new Intl.DateTimeFormat("en-US", {
+          {new Intl.DateTimeFormat("pt", {
             year: "numeric",
             month: "long",
             day: "2-digit",
-            minute: "2-digit",
           }).format(new Date(comment.date))}
         </p>
       </li>
@@ -45,7 +44,7 @@ function RenderComments({ comments, addComment, dishId }) {
     <div className="col-12 col-md-5 m-1">
       <h4> Comments </h4>
       <ul className="list-unstyled">{cmnts}</ul>
-      <CommentForm dishId={dishId} addComment={addComment} />
+      <CommentForm dishId={dishId} postComment={postComment} />
     </div>
   );
 }
@@ -76,7 +75,7 @@ class CommentForm extends Component {
   handleCommentFormSubmit(values) {
     console.log("Form Values: " + JSON.stringify(values));
     this.toggleCommentFormModal();
-    this.props.addComment(
+    this.props.postComment(
       this.props.dishId,
       values.rating,
       values.author,
@@ -273,7 +272,7 @@ const DishDetail = (props) => {
           <RenderDish dish={props.dish} />
           <RenderComments
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}
           />
         </div>
