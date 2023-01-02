@@ -195,7 +195,7 @@ address {
 .page-enter-active {
   opacity: 1;
   transform: translateX(0%);
-  transition: all 500ms ease-in;
+  transition: all 300ms ease-in;
 }
 
 .page-exit {
@@ -206,5 +206,5 @@ address {
 .page-exit-active {
   opacity: 0.01;
   transform: translateX(100%);
-  transition: all 500ms ease-out;
+  transition: all 300ms ease-out;
 }
