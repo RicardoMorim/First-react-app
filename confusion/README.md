@@ -1,3 +1,7 @@
+# Using the app
+
+To use this app you will need to start a JSON Server of the file "db.json" in the folder "json-server" in the port 3001. After that the app will be on at "localhost:3001"
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
