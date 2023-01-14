@@ -1,2 +1,2 @@
 //Base URL of the JSON server
-export const baseUrl = "http://localhost:3000/";
+export const baseUrl = "https://database-for-ristaurante-confusion.vercel.app/";
