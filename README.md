@@ -24,6 +24,6 @@ All pages have a header and a footer that enables the user to travel between pag
 Note: There's also another strange vercel bug where if the user refreshes the page the browser returns 404 :(
 
 # Links
-Visit the page here: https://restauranteconfusion.vercel.app/
+Visit the page here: https://first-react-app-ricardomorim.vercel.app/home
 
-GitHub repository: https://github.com/RicardoMorim/Restaurante-Confusion
+
