@@ -11,5 +11,5 @@ Everything has smooth animations and small loading animations.
 Note: There's also another strange vercel bug where if the user refreshes the page the browser returns 404 :(
 
 Visit the page here: https://restauranteconfusion.vercel.app/
-GitHub repository: https://github.com/RicardoMorim/Restaurante-Confusion
 
+GitHub repository: https://github.com/RicardoMorim/Restaurante-Confusion
