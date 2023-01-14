@@ -3,8 +3,11 @@ This is my app for the Front End Development with React Course!
 
 # With this app i learned: 
  -> GIT;
+ 
  -> React;
+ 
  -> Bootstrap and Reactstrap;
+ 
  -> Client-Server Communication.
 
 # Features:
