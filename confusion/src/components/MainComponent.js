@@ -65,10 +65,10 @@ const mapDispatchToProps = (dispatch) => ({
 
 class Main extends Component {
 	componentDidMount() {
+		this.props.fetchPromos();
 		this.props.fetchDishes();
 		this.props.fetchLeaders();
 		this.props.fetchComments();
-		this.props.fetchPromos();
 	}
 
 	render() {
@@ -78,13 +78,12 @@ class Main extends Component {
 					dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
 					dishesLoading={this.props.dishes.isLoading}
 					dishErrMess={this.props.dishes.errMess}
-					promotion={this.props.promotions.promotions &&
-						this.props.promotions.promotions.filter(promo => promo.featured)[0]}
+					promotion={this.props.promotions.isLoading ? null :
+						(this.props.promotions.promotions &&
+							this.props.promotions.promotions.filter(promo => promo.featured)[0])}
 					promoLoading={this.props.promotions.isLoading}
 					promoErrMess={this.props.promotions.errMess}
-					leader={
-						this.props.leaders.leaders.filter((leader) => leader.featured)[0]
-					}
+					leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
 					leadersLoading={this.props.leaders.isLoading}
 					leadersErrMess={this.props.leaders.errMess}
 				/>
